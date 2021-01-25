@@ -1,0 +1,8 @@
+= Phytec Isar Meta Layer
+
+This is hardware support layer for PHYTEC Boards on top of Isar.
+
+.Supported machines
+* phyboard-polis-imx8mm-3
+* phyboard-pollux-imx8mp-1
+* phyboard-segin-imx6ul-6
