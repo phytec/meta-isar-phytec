@@ -1,0 +1,30 @@
+From 1cf626c5cb0223790d9d85cb5cf39a9aa647bc8f Mon Sep 17 00:00:00 2001
+From: Anton Mikanovich <amikan@ilbers.de>
+Date: Sat, 16 Jan 2021 14:15:04 +0100
+Subject: [PATCH] arm64: dts: imx8mn-phyboard-polis: Fix typo in Makefile
+
+Device tree binary imx8mn-phyboard-polis-dsi.dtb vas declared as .dts
+in arch/arm64/boot/dts/freescale/Makefile. That caused dtb install
+error.
+
+Signed-off-by: Anton Mikanovich <amikan@ilbers.de>
+---
+ arch/arm64/boot/dts/freescale/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index e09c1494db51..3a9259be2e08 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -64,7 +64,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mn-evk.dtb imx8mn-evk-rm67191.dtb imx8mn-ddr4-evk.
+ 			  imx8mn-evk-ak5558.dtb imx8mn-evk-rpmsg.dtb imx8mn-evk-8mic-revE.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mn-ddr4-evk-root.dtb imx8mn-ddr4-evk-inmate.dtb imx8mn-evk-root.dtb imx8mn-evk-inmate.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mn-ab2.dtb imx8mn-ddr4-ab2.dtb
+-dtb-$(CONFIG_ARCH_MXC) += imx8mn-phyboard-polis-dsi.dts
++dtb-$(CONFIG_ARCH_MXC) += imx8mn-phyboard-polis-dsi.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb imx8mp-evk-root.dtb imx8mp-evk-inmate.dtb imx8mp-evk-rpmsg.dtb \
+ 			  imx8mp-evk-rm67191.dtb imx8mp-evk-flexcan2.dtb imx8mp-evk-it6263-lvds-dual-channel.dtb \
+ 			  imx8mp-evk-jdi-wuxga-lvds-panel.dtb imx8mp-ab2.dtb imx8mp-evk-sof-wm8960.dtb \
+-- 
+2.20.1
+
