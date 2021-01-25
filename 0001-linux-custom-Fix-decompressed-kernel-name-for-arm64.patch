@@ -1,0 +1,46 @@
+From b2b53558860dc19cdffde2c4491874ae8e52c821 Mon Sep 17 00:00:00 2001
+From: Anton Mikanovich <amikan@ilbers.de>
+Date: Thu, 21 Jan 2021 14:48:08 +0100
+Subject: [PATCH] linux-custom: Fix decompressed kernel name for arm64
+
+We are performing gunzip from vmlinuz on arm64, so output should have
+correct naming.
+
+Signed-off-by: Anton Mikanovich <amikan@ilbers.de>
+---
+ meta/conf/bitbake.conf                                   | 1 +
+ meta/recipes-kernel/linux/files/debian/isar/install.tmpl | 6 +++---
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/meta/conf/bitbake.conf b/meta/conf/bitbake.conf
+index acce55d..9859456 100644
+--- a/meta/conf/bitbake.conf
++++ b/meta/conf/bitbake.conf
+@@ -61,6 +61,7 @@ CACHE = "${TMPDIR}/cache"
+ KERNEL_FILE ?= "vmlinuz"
+ KERNEL_FILE_mipsel ?= "vmlinux"
+ KERNEL_FILE_riscv64 ?= "vmlinux"
++KERNEL_FILE_arm64 ?= "vmlinux"
+ 
+ OVERRIDES = "${DISTRO_ARCH}:${COMPAT_OVERRIDE}:${MACHINE}:${DISTRO}:forcevariable"
+ FILESOVERRIDES = "${DISTRO_ARCH}:${MACHINE}"
+diff --git a/meta/recipes-kernel/linux/files/debian/isar/install.tmpl b/meta/recipes-kernel/linux/files/debian/isar/install.tmpl
+index 8eca4c7..69fb88d 100644
+--- a/meta/recipes-kernel/linux/files/debian/isar/install.tmpl
++++ b/meta/recipes-kernel/linux/files/debian/isar/install.tmpl
+@@ -26,9 +26,9 @@ do_install() {
+     fi
+     krel="$(${MAKE} O=${O} -s --no-print-directory kernelrelease)"
+     case "${ARCH}" in
+-        mips|powerpc|riscv) kimage_path="boot/vmlinux-${krel}"    ;;
+-                        um) kimage_path="usr/bin/vmlinux-${krel}" ;;
+-                         *) kimage_path="boot/vmlinuz-${krel}"    ;;
++        mips|powerpc|riscv|arm64) kimage_path="boot/vmlinux-${krel}"    ;;
++                              um) kimage_path="usr/bin/vmlinux-${krel}" ;;
++                               *) kimage_path="boot/vmlinuz-${krel}"    ;;
+     esac
+ 
+     print_settings
+-- 
+2.20.1
+
