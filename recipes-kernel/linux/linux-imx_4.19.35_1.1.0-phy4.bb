@@ -2,6 +2,8 @@
 # Author: Teresa Remmet <t.remmet@phytec.de>
 # Adopted to Isar: Anton Mikanovich <amikan@ilbers.de>
 
+inherit phygittag
+inherit buildinfo
 include linux-common.inc
 
 BRANCH = "v4.19.35_1.1.0-phy"

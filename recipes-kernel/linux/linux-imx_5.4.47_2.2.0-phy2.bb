@@ -2,6 +2,9 @@
 # Author: Teresa Remmet <t.remmet@phytec.de>
 # Adopted to Isar: Anton Mikanovich <amikan@ilbers.de>
 
+inherit phygittag
+inherit buildinfo
+inherit fsl-vivante-kernel-driver-handler
 include linux-common.inc
 
 BRANCH = "v5.4.47_2.2.0-phy"
