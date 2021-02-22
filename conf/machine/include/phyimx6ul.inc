@@ -17,5 +17,7 @@ OVERRIDES .= ":imxfbdev:imxpxp"
 
 MACHINE_FEATURES = "apm usbgadget usbhost vfat"
 
+QT_QPA_PLATFORM ?= "linuxfb"
+
 # default images to build
 IMAGE_TYPE ?= "targz-img"
