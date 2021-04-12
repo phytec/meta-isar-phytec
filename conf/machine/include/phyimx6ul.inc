@@ -10,6 +10,10 @@ PREFERRED_PROVIDER_virtual/kernel ?= "linux-mainline"
 KERNEL_NAME ?= "mainline"
 PREFERRED_VERSION_linux-mainline ?= "4.14.93%"
 
+OVERRIDES .= ":mx6:mx6ul"
+
+OVERRIDES .= ":armv7ve"
+
 # cpu feature overwrite support
 OVERRIDES .= ":imxpxp"
 
