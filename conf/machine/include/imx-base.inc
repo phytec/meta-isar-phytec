@@ -1,5 +1,7 @@
 # Provides the i.MX common settings
 
+require conf/machine/include/utilities.inc
+
 # Set specific make target and binary suffix
 IMX_DEFAULT_BOOTLOADER = "u-boot-fslc"
 IMX_DEFAULT_BOOTLOADER_mx8 = "u-boot-imx"
@@ -156,7 +158,7 @@ OPTEE_BOOT_IMAGE_aarch64 = ""
 IMAGE_FSTYPES ?= "${SOC_DEFAULT_IMAGE_FSTYPES}"
 
 IMAGE_BOOT_FILES ?= " \
-    ${KERNEL_FILE} \
+    ${KERNEL_IMAGETYPE} \
     ${@make_dtb_boot_files(d)} \
     ${@bb.utils.contains('MACHINE_FEATURES', 'optee', '${OPTEE_BOOT_IMAGE}', '', d)} \
 "
@@ -196,6 +198,9 @@ WKS_FILE_use-fsl-bsp_mx7 = "imx-uboot-bootpart.wks.in"
 MACHINE_SERIAL = "ttymxc0"
 MACHINE_SERIAL_mxs = "ttyAMA0"
 BAUDRATE_TTY = "115200"
+
+KERNEL_IMAGETYPE = "zImage"
+KERNEL_IMAGETYPE_aarch64 = "Image"
 
 MACHINE_FEATURES = "usbgadget usbhost vfat alsa touchscreen"
 
