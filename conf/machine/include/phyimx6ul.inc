@@ -30,6 +30,8 @@ QT_QPA_PLATFORM ?= "linuxfb"
 IMAGE_BOOT_FILES = "zImage oftree ${@make_dtb_boot_files(d)}"
 WKS_FILE_mx6ul ?= "imx6-sdimage.wks"
 
+IMAGER_BUILD_DEPS += "barebox"
+
 # default images to build
 #IMAGE_TYPE ?= "targz-img"
 #IMAGE_TYPE ?= "wic-img"

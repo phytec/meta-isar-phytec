@@ -170,12 +170,12 @@ OPTEE_WKS_FILE_DEPENDS_aarch64 = ""
 WKS_FILE_DEPENDS ?= " \
     virtual/bootloader \
     \
-    e2fsprogs-native \
-    bmap-tools-native \
     ${@bb.utils.contains('MACHINE_FEATURES', 'optee', '${OPTEE_WKS_FILE_DEPENDS}', '', d)} \
 "
 
 WKS_FILE_DEPENDS_append_mx8 = " imx-boot "
+
+IMAGER_BUILD_DEPS += "${WKS_FILE_DEPENDS}"
 
 SOC_DEFAULT_WKS_FILE ?= "imx-uboot-bootpart.wks.in"
 SOC_DEFAULT_WKS_FILE_mx8 ?= "imx-imx-boot-bootpart.wks.in"
