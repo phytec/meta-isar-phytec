@@ -10,5 +10,5 @@ WKS_FILE_mx8mn ?= "imx8mn-sdimage.wks"
 WKS_FILE_mx8mp ?= "imx8mn-sdimage.wks"
 
 # Default images to build
-#IMAGE_TYPE_mx8 = "targz-img"
-IMAGE_TYPE_mx8 = "wic-img"
+#IMAGE_FSTYPES_mx8 = "targz"
+IMAGE_FSTYPES_mx8 = "wic"
