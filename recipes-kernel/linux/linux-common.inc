@@ -20,7 +20,7 @@ SRC_URI_append = " \
 
 INC_PR = "r0"
 
-KBUILD_DEPENDS += "lzop:native, lz4:native"
+KBUILD_DEPENDS += "lzop, lz4"
 PATCHTOOL = "git"
 
 def get_oftree(d):
