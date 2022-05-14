@@ -11,7 +11,7 @@ BAUDRATE_TTY ?= "115200"
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-mainline"
 KERNEL_IMAGETYPE ?= "zImage"
 KERNEL_NAME ?= "mainline"
-PREFERRED_VERSION_linux-mainline ?= "4.14.93%"
+PREFERRED_VERSION_linux-mainline ?= "5.10.76%"
 
 OVERRIDES .= ":mx6:mx6ul"
 
