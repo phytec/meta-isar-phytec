@@ -20,10 +20,6 @@ SRCREV = "b292e2e1d9b447aa0d06410476de852b9a9ee5fa"
 
 SRC_URI += "file://0001-arm64-dts-imx8mn-phyboard-polis-Fix-typo-in-Makefile.patch"
 
-# Fix to enable patching
-deltask do_adjust_git
-addtask do_adjust_git after do_patch before do_prepare_build
-
 S = "${WORKDIR}/git"
 
 KERNEL_DEFCONFIG = "imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platform.config"
