@@ -10,6 +10,9 @@ GIT_URL = "git://git.phytec.de/${PN}"
 SRC_URI += "${GIT_URL};branch=${BRANCH}"
 PR = "${INC_PR}.0"
 
+# Fix for make dtbs_install issue
+SRC_URI += "file://0001-dtbsinstall-fix-installing-DT-overlays.patch"
+
 LINUX_VERSION_EXTENSION = "-isar"
 
 # NOTE: PV must be in the format "x.y.z-.*". It cannot begin with a 'v'.
