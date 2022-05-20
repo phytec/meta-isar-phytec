@@ -7,9 +7,9 @@ SRC_URI_mx8 = "file://imx-boot"
 # from BSP-Yocto-NXP-i.MX8MM-PD22.1.0
 PV_mx8mm = "2021.04"
 
-# Unknown U-boot version from original SD card:
-# Built : 18:54:44, Nov  2 2020   v2.2(release):rel_imx_5.4.47_2.2.0-0-gc949a888e
-PV_mx8mp = "1.0"
+# U-Boot 2022.07-rc2 (mainline c387e62)
+# from 	BSP-Yocto-Ampliphy-i.MX8MP-master
+PV_mx8mp = "2022.07-rc2"
 
 PROVIDES += "virtual/bootloader"
 PROVIDES += "imx-boot"
