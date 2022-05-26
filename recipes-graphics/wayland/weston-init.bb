@@ -10,7 +10,8 @@ DEBIAN_DEPENDS = "weston, plymouth"
 SRC_URI = "file://weston.service \
            file://weston.ini \
            file://weston.config \
-           file://postinst"
+           file://postinst \
+           file://profile"
 
 do_install () {
 	install -d -m 0775 ${D}/lib/systemd/system
@@ -19,4 +20,6 @@ do_install () {
 	install -m 0644 ${WORKDIR}/weston.ini ${D}/etc/xdg/weston/
 	install -d -m 0775 ${D}/etc/default
 	install -m 0644 ${WORKDIR}/weston.config ${D}/etc/default/weston
+
+	install -Dm0755 ${WORKDIR}/profile ${D}/etc/profile.d/weston.sh
 }
