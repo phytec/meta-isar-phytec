@@ -3,7 +3,9 @@
 DISTRO_ARCH ?= "arm64"
 
 # Wic
-IMAGE_BOOT_FILES += "oftree"
+EXTERNAL_KERNEL_DEVICETREE ??= ""
+IMAGE_BOOT_FILES += "oftree ${EXTERNAL_KERNEL_DEVICETREE} bootenv.txt"
+IMAGER_BUILD_DEPS += "phytec-bootenv"
 WKS_FILE_mx8 ?= "imx8-sdimage.wks"
 WKS_FILE_mx8m ?= "imx8m-sdimage.wks"
 WKS_FILE_mx8mn ?= "imx8mn-sdimage.wks"
