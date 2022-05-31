@@ -46,40 +46,25 @@ XSERVER = "xserver-xorg \
            xf86-input-evdev \
            ${XSERVER_DRIVER}"
 
-# Ship kernel modules
-MACHINE_EXTRA_RRECOMMENDS = "kernel-modules"
-
 # Firmware
 MACHINE_FIRMWARE ?= ""
-MACHINE_FIRMWARE_append_mx25 = " firmware-imx-sdma-imx25"
-MACHINE_FIRMWARE_append_mx7d = " linux-firmware-imx-sdma-imx7d firmware-imx-epdc"
-MACHINE_FIRMWARE_append_mx6 = " linux-firmware-imx-sdma-imx6q"
-MACHINE_FIRMWARE_append_mx6q = " firmware-imx-vpu-imx6q"
-MACHINE_FIRMWARE_append_mx6dl = " firmware-imx-vpu-imx6d firmware-imx-epdc"
-MACHINE_FIRMWARE_append_mx6sl = " firmware-imx-epdc"
-MACHINE_FIRMWARE_append_mx6sll = " firmware-imx-epdc"
-MACHINE_FIRMWARE_append_mx6ull = " firmware-imx-epdc"
-MACHINE_FIRMWARE_append_mx53 = " firmware-imx-vpu-imx53 firmware-imx-sdma-imx53"
-MACHINE_FIRMWARE_append_mx51 = " firmware-imx-vpu-imx51 firmware-imx-sdma-imx51"
-MACHINE_FIRMWARE_append_mx8qxp = " firmware-imx-vpu-imx8qxp"
-MACHINE_FIRMWARE_append_use-mainline-bsp = " linux-firmware-imx-sdma-imx6q linux-firmware-imx-sdma-imx7d firmware-imx-vpu-imx6q firmware-imx-vpu-imx6d"
-
-# FIXME: Needs addition of firmware-imx of official BSPs
-#MACHINE_FIRMWARE_append_mx27 = " firmware-imx-vpu-imx27"
+MACHINE_FIRMWARE_append = "firmware-linux firmware-misc-nonfree"
 
 MACHINE_EXTRA_RRECOMMENDS += "${MACHINE_FIRMWARE}"
 
 # Extra audio support
-MACHINE_EXTRA_RRECOMMENDS_append_mx6 = " ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'imx-alsa-plugins', '', d)}"
-MACHINE_EXTRA_RRECOMMENDS_append_mx7 = " ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'imx-alsa-plugins', '', d)}"
-MACHINE_EXTRA_RRECOMMENDS_append_mx8 = " ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'imx-alsa-plugins', '', d)}"
+#MACHINE_EXTRA_RRECOMMENDS_append_mx6 = " ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'imx-alsa-plugins', '', d)}"
+#MACHINE_EXTRA_RRECOMMENDS_append_mx7 = " ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'imx-alsa-plugins', '', d)}"
+#MACHINE_EXTRA_RRECOMMENDS_append_mx8 = " ${@bb.utils.contains('DISTRO_FEATURES', 'alsa', 'imx-alsa-plugins', '', d)}"
 
 # Extra QCA Wi-Fi & BTE driver and firmware
-MACHINE_EXTRA_RRECOMMENDS_append = " ${@bb.utils.contains('MACHINE_FEATURES', 'qca6174', 'packagegroup-fsl-qca6174', '', d)}"
-MACHINE_EXTRA_RRECOMMENDS_append = " ${@bb.utils.contains('MACHINE_FEATURES', 'qca9377', 'packagegroup-fsl-qca9377', '', d)}"
+MACHINE_EXTRA_RRECOMMENDS_append = " ${@bb.utils.contains('MACHINE_FEATURES', 'qca6174', 'firmware-atheros', '', d)}"
+MACHINE_EXTRA_RRECOMMENDS_append = " ${@bb.utils.contains('MACHINE_FEATURES', 'qca9377', 'firmware-atheros', '', d)}"
 
 # Extra udev rules
-MACHINE_EXTRA_RRECOMMENDS += "udev-rules-imx"
+IMAGE_INSTALL += "udev-rules-imx"
+
+IMAGE_PREINSTALL += "${MACHINE_EXTRA_RRECOMMENDS}"
 
 # GStreamer 1.0 plugins
 MACHINE_GSTREAMER_1_0_PLUGIN ?= ""
