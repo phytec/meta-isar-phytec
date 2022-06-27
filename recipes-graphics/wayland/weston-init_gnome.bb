@@ -10,6 +10,7 @@ DEBIAN_DEPENDS = "weston, plymouth"
 SRC_URI = "file://weston.service \
            file://weston.ini \
            file://weston.config \
+           file://postinst \
            file://profile \
            file://71-weston-drm.rules"
 

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-systemctl enable weston.service
+systemctl disable weston.service
