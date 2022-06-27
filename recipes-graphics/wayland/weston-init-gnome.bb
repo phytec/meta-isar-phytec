@@ -7,14 +7,12 @@ PV = "1.0"
 
 DEBIAN_DEPENDS = "weston, plymouth"
 
-FILESEXTRAPATHS_prepend += "${THISDIR}/weston-init:"
-
-SRC_URI = "file://weston.service \
-           file://weston.ini \
+SRC_URI = "file://${THISDIR}/weston-init/weston.service \
+           file://${THISDIR}/weston-init/weston.ini \
            file://weston.config \
-           file://postinst \
-           file://profile \
-           file://71-weston-drm.rules"
+           file://${THISDIR}/weston-init/postinst \
+           file://${THISDIR}/weston-init/profile \
+           file://${THISDIR}/weston-init/71-weston-drm.rules"
 
 do_install () {
 	install -d -m 0775 ${D}/lib/systemd/system
