@@ -7,6 +7,8 @@ PV = "1.0"
 
 DEBIAN_DEPENDS = "weston, plymouth"
 
+FILESEXTRAPATHS_prepend += "${THISDIR}/weston-init:"
+
 SRC_URI = "file://weston.service \
            file://weston.ini \
            file://weston.config \
