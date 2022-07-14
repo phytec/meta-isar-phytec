@@ -15,6 +15,9 @@ PR = "${INC_PR}.0"
 # Fix for make dtbs_install issue
 SRC_URI += "file://0001-dtbsinstall-fix-installing-DT-overlays.patch"
 
+#Disable LVDS 1 on pollux board for HDMI to work
+SRC_URI += "file://0001-Disable-LVDS-1-on-pollux.patch"
+
 LINUX_VERSION_EXTENSION = "-isar"
 
 # NOTE: PV must be in the format "x.y.z-.*". It cannot begin with a 'v'.
