@@ -18,6 +18,9 @@ SRC_URI += "file://0001-dtbsinstall-fix-installing-DT-overlays.patch"
 #Disable LVDS 1 on pollux board for HDMI to work
 SRC_URI += "file://0001-Disable-LVDS-1-on-pollux.patch"
 
+#Disable HDMI Audio on pollux board
+SRC_URI += "file://0001-Deactivate-HDMI-Audio.patch"
+
 LINUX_VERSION_EXTENSION = "-isar"
 
 # NOTE: PV must be in the format "x.y.z-.*". It cannot begin with a 'v'.
