@@ -1,0 +1,26 @@
+From d34b35b4d16236a7ccc6950c4f53ff506ba8b630 Mon Sep 17 00:00:00 2001
+From: Benjamin Hahn <B.Hahn@phytec.de>
+Date: Mon, 18 Jul 2022 15:06:22 +0200
+Subject: [PATCH 1/1] Deactivate HDMI Audio
+
+Signed-off-by: Benjamin Hahn <B.Hahn@phytec.de>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi
+index a32084ef2b9e..b36906820fdf 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux.dtsi
+@@ -121,7 +121,7 @@ rpmsg_reserved: rpmsg@0x55800000 {
+ };
+ 
+ &aud2htx {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ /* TPM */
+-- 
+2.25.1
+
