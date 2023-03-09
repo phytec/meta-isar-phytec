@@ -19,7 +19,7 @@ LINUX_VERSION_EXTENSION = "-isar"
 
 # NOTE: PV must be in the format "x.y.z-.*". It cannot begin with a 'v'.
 # NOTE: Keep version in filename in sync with commit id!
-SRCREV = "59910661589e0f5c57fd820855bc75ea76b2b0c5"
+SRCREV = "27f8ae11244a0af4948dee382532dcc0ba3aafcd"
 
 S = "${WORKDIR}/git"
 
@@ -27,9 +27,8 @@ KERNEL_DEFCONFIG = "imx_v8_defconfig imx8_phytec_distro.config imx8_phytec_platf
 
 COMPATIBLE_MACHINE  = "^("
 COMPATIBLE_MACHINE .= "phyboard-polaris-imx8m-3"
-COMPATIBLE_MACHINE .= "|phyboard-polis-imx8mm-3"
-COMPATIBLE_MACHINE .= "|phyboard-polis-imx8mn-1"
-COMPATIBLE_MACHINE .= "|phyboard-pollux-imx8mp-1"
+COMPATIBLE_MACHINE .= "|phyboard-polis-imx8mm-4"
+COMPATIBLE_MACHINE .= "|phyboard-pollux-imx8mp-3"
 COMPATIBLE_MACHINE .= "|phygate-tauri-imx8mm-1"
 COMPATIBLE_MACHINE .= "|phygate-tauri-imx8mm-2"
 COMPATIBLE_MACHINE .= ")$"
