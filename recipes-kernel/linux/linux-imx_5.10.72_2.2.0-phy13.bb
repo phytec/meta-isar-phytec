@@ -8,7 +8,7 @@ inherit fsl-vivante-kernel-driver-handler
 include linux-common.inc
 
 BRANCH = "v5.10.72_2.2.0-phy"
-GIT_URL = "git://git.phytec.de/${PN}"
+GIT_URL = "git://github.com/phytec/linux-phytec-imx.git"
 SRC_URI += "${GIT_URL};branch=${BRANCH}"
 PR = "${INC_PR}.0"
 
