@@ -48,7 +48,7 @@ XSERVER = "xserver-xorg \
 
 # Firmware
 MACHINE_FIRMWARE ?= ""
-MACHINE_FIRMWARE_append = "firmware-linux firmware-misc-nonfree"
+MACHINE_FIRMWARE_append = "linux-firmware"
 
 MACHINE_EXTRA_RRECOMMENDS += "${MACHINE_FIRMWARE}"
 
