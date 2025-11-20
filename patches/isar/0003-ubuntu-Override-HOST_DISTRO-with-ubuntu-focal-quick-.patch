@@ -1,0 +1,26 @@
+From 2c4c8c6e45c95322935f371c12fd7ffcc1b6f5b0 Mon Sep 17 00:00:00 2001
+From: Zhihang Wei <wzh@ilbers.de>
+Date: Thu, 13 Nov 2025 16:38:21 +0100
+Subject: [PATCH 3/3] ubuntu: Override HOST_DISTRO with ubuntu-focal, quick fix
+ to make ubuntu-focal buildable
+
+---
+ meta-isar/conf/distro/ubuntu-focal.conf | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/meta-isar/conf/distro/ubuntu-focal.conf b/meta-isar/conf/distro/ubuntu-focal.conf
+index 379b5b30..537893dd 100644
+--- a/meta-isar/conf/distro/ubuntu-focal.conf
++++ b/meta-isar/conf/distro/ubuntu-focal.conf
+@@ -8,6 +8,8 @@ require conf/distro/debian-common.conf
+ BASE_DISTRO = "ubuntu"
+ BASE_DISTRO_CODENAME = "focal"
+ 
++HOST_DISTRO = "ubuntu-focal"
++
+ DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${BASE_DISTRO}-${BASE_DISTRO_CODENAME}-ports.list"
+ HOST_DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${HOST_DISTRO}.list conf/distro/${HOST_DISTRO}-ports.list"
+ 
+-- 
+2.39.5
+

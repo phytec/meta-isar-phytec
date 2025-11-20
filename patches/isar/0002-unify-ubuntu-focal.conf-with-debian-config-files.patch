@@ -1,0 +1,42 @@
+From 634e188fd28c91859d56f2af8ae874ec76716b43 Mon Sep 17 00:00:00 2001
+From: Felix Moessbauer <felix.moessbauer@siemens.com>
+Date: Wed, 28 Sep 2022 14:57:59 +0200
+Subject: [PATCH 2/3] unify ubuntu-focal.conf with debian config files
+
+This patch reworks the ubuntu-focal.conf distro config file.
+It unifies the pattern used for DISTRO_APT_SOURCES with the
+pattern used in debian-common.conf.
+
+By that, the BASE_DISTRO variable is used to select the corresponding
+apt sources.
+This makes it possible to derive custom distros based on ubuntu as well.
+
+Signed-off-by: Felix Moessbauer <felix.moessbauer@siemens.com>
+---
+ meta-isar/conf/distro/ubuntu-focal.conf | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/meta-isar/conf/distro/ubuntu-focal.conf b/meta-isar/conf/distro/ubuntu-focal.conf
+index c0d12967..379b5b30 100644
+--- a/meta-isar/conf/distro/ubuntu-focal.conf
++++ b/meta-isar/conf/distro/ubuntu-focal.conf
+@@ -6,13 +6,11 @@
+ require conf/distro/debian-common.conf
+ 
+ BASE_DISTRO = "ubuntu"
+-
+-DISTRO_APT_SOURCES ?= "conf/distro/${DISTRO}.list"
+-DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${DISTRO}-ports.list"
+-HOST_DISTRO_APT_SOURCES_append_arm64 = " ${DISTRO_APT_SOURCES}"
+-
+ BASE_DISTRO_CODENAME = "focal"
+ 
++DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${BASE_DISTRO}-${BASE_DISTRO_CODENAME}-ports.list"
++HOST_DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${HOST_DISTRO}.list conf/distro/${HOST_DISTRO}-ports.list"
++
+ # that is what debootstrap_1.0.118ubuntu1 does anyways
+ DISTRO_DEBOOTSTRAP_SCRIPT = "/usr/share/debootstrap/scripts/gutsy"
+ 
+-- 
+2.39.5
+
